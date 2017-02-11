@@ -92,7 +92,7 @@ function bossFightClick()
 }
 function stoneComplain()
 {
-  var x = Math.random()<0.1;
+  var x = Math.random();
   if(x<0.1)
     alert("Call the campus police!");
   else if(x<0.2)
