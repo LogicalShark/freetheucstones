@@ -30,7 +30,7 @@ input[type=text] {
     border-radius: 2px;
 }
 
-#login, #register
+#login, #register, #detect
 {
 	margin-left: 5px;
 	margin-right: 5px;
