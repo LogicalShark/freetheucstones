@@ -37,6 +37,22 @@ function login()
 function bossEncounter()
 { 
   alert("A boss is approaching!");
+  switch(Math.floor(Math.random()*6))//b
+  {
+    case 0: window.location.assign("battle.html");
+      break;
+    case 1: window.location.assign("battle1.html");
+      break;
+    case 2: window.location.assign("battle2.html");
+      break;
+    case 3: window.location.assign("battle3.html");
+      break;
+    case 4: window.location.assign("battle4.html");
+      break;
+    case 5: window.location.assign("battle5.html");
+      break;
+    default: window.location.assign("battle.html");
+  }
     var d;
     var user = firebase.database().ref("users").child(username);
     user.on("value", function(snapshot)
