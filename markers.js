@@ -66,7 +66,7 @@ function initMap() {
     for (var i = 0; i < stones; i++)
     {
         randPos = new google.maps.LatLng(randRange(lat1, lat0),
-                                         randRange(lon0, lon1));
+            randRange(lon0, lon1));
 
         var rockChance = Math.random();
         var rockIcon;
@@ -82,7 +82,8 @@ function initMap() {
             position: randPos,
             map: map,
             icon: rockIcon,
-            title:"UC Stone"
+            title:"UC Stone",
+            freed: false
         });
 
         var textInfowindow = new google.maps.InfoWindow({
@@ -99,24 +100,20 @@ function initMap() {
     }
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-          showMyPosition(position);
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
+        navigator.geolocation.getCurrentPosition(function(position) {
+            showMyPosition(position);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
     } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     }
-
-
 
 }
 
 function showMyPosition(position)
 {
-
-    // My location stuff
     var myLat = position.coords.latitude;
     var myLng = position.coords.longitude;
     var myPos = {lat: myLat, lng: myLng};
@@ -124,14 +121,14 @@ function showMyPosition(position)
     infoWindow.setContent("My location");
 
     var myCircle = new google.maps.Circle({
-      strokeColor: '#FF0000',
-      strokeOpacity: 0.8,
-      strokeWeight: 2,
-      fillColor: '#FF0000',
-      fillOpacity: 0.35,
-      setMap: map,
-      center: myPos,
-      radius: 50
+        strokeColor: '#FF0000',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#FF0000',
+        fillOpacity: 0.35,
+        setMap: map,
+        center: myPos,
+        radius: 50
     });
 
     return myPos;
@@ -139,7 +136,7 @@ function showMyPosition(position)
 
 function detect()
 {
-     var freeRockPaths = [
+    var freeRockPaths = [
         "images/rock_small_free2.png",
         "images/rock_small_free2.png",
         "images/rock_small_free3.png",
@@ -148,45 +145,47 @@ function detect()
         "images/rock_small_free6.png"];
 
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-          var myPos = showMyPosition(position);
-          myLat = myPos.lat;
-          myLng = myPos.lng;
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var myPos = showMyPosition(position);
+            myLat = myPos.lat;
+            myLng = myPos.lng;
 
             // Markers stuff
 
             var alerted = false;
             for(var i = 0; i<markers.length; i++)
             {
-              var m = markers[i];
-              var markerlat = m.getPosition().lat();
-              var markerlng = m.getPosition().lng();
-              var dist = Math.sqrt(Math.pow((myLat-markerlat), 2) +
-                  Math.pow((myLng-markerlng), 2));
-              if( dist <=.0014) //.00014
-              {
-                  if(!alerted)
-                  {
-                    freeStone();
-                    alerted = true;
-                  }
-                  iconIndex = rockPaths.indexOf(markers[i].getIcon());
-                  markers[i].setIcon(freeRockPaths[iconIndex]);
-                  console.log(markers[i].getIcon())
-              }
+                var m = markers[i];
+                if (!markers[i].freed) {
+                    var markerlat = m.getPosition().lat();
+                    var markerlng = m.getPosition().lng();
+                    var dist = Math.sqrt(Math.pow((myLat - markerlat), 2) +
+                        Math.pow((myLng - markerlng), 2));
+                    if (dist <= .0014) //.00014
+                    {
+                        if (!alerted) {
+                            freeStone();
+                            alerted = true;
+                        }
+                        iconIndex = rockPaths.indexOf(markers[i].getIcon());
+                        markers[i].setIcon(freeRockPaths[iconIndex]);
+                        console.log(markers[i].getIcon());
+                    }
+                    markers[i].freed = true;
+                }
             }
-      }, function() {
-        handleLocationError(true, infoWindow, map.getCenter());
-      });
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
     } else {
-      // Browser doesn't support Geolocation
-      handleLocationError(false, infoWindow, map.getCenter());
-    }   
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
 }
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
 }
 
