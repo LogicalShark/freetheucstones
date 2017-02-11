@@ -20,15 +20,15 @@ function initMap() {
     var lat1 = 40.441393;
     var lon1 = -79.940703;
 
-    var normalRocks = ["images/rock_small2_1.png", "images/rock_small2.png"];
 
-    var colorRocks = [
+    rockPaths = [
+        "images/rock_small2_1.png",
+        "images/rock_small2.png",
         "images/rock_small3.png",
         "images/rock_small4.png",
         "images/rock_small5.png",
         "images/rock_small6.png"];
 
-    var rock_small2 = "images/rock_small2.png";
 
     for (var i = 0; i < stones; i++)
     {
@@ -37,10 +37,10 @@ function initMap() {
 
         var rockChance = Math.random();
         var rockIcon;
-        if (rockChance < 0.5) {
-            rockIcon = randChoice(normalRocks);
+        if (rockChance < 0.7) {
+            rockIcon = randChoice(rockPaths.slice(0,2));
         } else {
-            rockIcon = randChoice(colorRocks);
+            rockIcon = randChoice(rockPaths.slice(2));
         }
 
         //console.log(rockIcon);
@@ -59,6 +59,14 @@ function initMap() {
 }
 function detect()
 {
+     var freeRockPaths = [
+        "images/rock_small_free2.png",
+        "images/rock_small_free2.png",
+        "images/rock_small_free3.png",
+        "images/rock_small_free4.png",
+        "images/rock_small_free5.png",
+        "images/rock_small_free6.png"];
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
           // My location stuff
@@ -81,6 +89,8 @@ function detect()
 
 
           // Markers stuff
+
+
           for(var i = 0; i<markers.length; i++)
           {
               var m = markers[i];
@@ -88,8 +98,11 @@ function detect()
               var markerlng = m.getPosition().lng();
               if(Math.sqrt((myLat-markerlat)^2 + (myLng-markerlng)^2)<=.0014) //.00014
               {
+                  console.log("Attempting to free stone");
                   freeStone();
-                  m.setIcon = "images/rock_small1.png";
+                  iconIndex = rockPaths.indexOf(markers[i].getIcon());
+                  markers[i].setIcon(freeRockPaths[iconIndex]);
+                  console.log(markers[i].getIcon())
               }
           }
       }, function() {
