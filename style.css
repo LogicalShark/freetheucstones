@@ -18,7 +18,7 @@ h1 {
 input
 {
     background: #EEE;
-    height: 20px;
+    height: 30px;
     margin-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
@@ -26,17 +26,21 @@ input
 }
 
 input[type=text] {
-    border: 2px solid white;
-    border-radius: 2px;
+    border: 2px solid #F2F2F2;
 }
 
-#login, #register, #detect
+button
 {
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-top: 10px;
-	mragin-bottom: 10px;
-	border: solid white;
+	margin-bottom: 10px;
+	border: solid #F2F2F2;
+	background-color: #F2F2F2;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 4px;
+	padding-bottom: 4px;
 }
 
  /* Remove margins and padding from the list, and add a black background color */
