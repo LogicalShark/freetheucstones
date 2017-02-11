@@ -160,20 +160,24 @@ function stoneComplain()
 }
 function loadLeaderboard()
 {
-//   var users = firebase.database().ref("users");
-//   users.orderByKey().limitToFirst(100);
-//   users.once('value').then(function(snapshot) {
-//     snapshot.forEach(function(childSnapshot) {
-//       var lastKey = childSnapshot.key();
-//       var data = []
-//       var stones = childSnapshot.val().stones;
-//       var bosses = childSnapshot.val().bosses;
-//       var level = childSnapshot.val().level;
-//       data.append([lastKey,stones,bosses]);
-// //       document.getElementById("leaderboard").innerHTML += lastKey+" "+stones+" "+bosses+" "++"<br>";      
-//       })
-//     });
-//   });
+  var users = firebase.database().ref("users");
+  users.orderByKey().limitToFirst(100);
+  users.once('value').then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var lastKey = childSnapshot.key();
+      var data = []
+      var stones = childSnapshot.val().stones;
+      var bosses = childSnapshot.val().bosses;
+      var level = childSnapshot.val().level;
+      data.append([lastKey,stones,bosses]);
+      var rows = document.getElementById("leaderboard").childNodes() ;
+      var cols = rows[i].childNodes();
+      cols[0].innerHTML = lastKey;
+      cols[1].innerHTML = stones;
+      cols[2].innerHTML = bosses;
+      })
+    });
+  });
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
