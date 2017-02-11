@@ -37,7 +37,7 @@ bossClicks = 10;
 username = "";
 function register()
 {
-  username = document.getElementById("username");
+  username = document.getElementById("username").value;
   firebase.database().ref(username).set({
     stones: 0,
     bosses: 0,
