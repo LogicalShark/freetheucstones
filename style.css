@@ -94,7 +94,7 @@ ul.topnav li.icon {display: none;}
   ul.topnav li.icon {
     float: right;
     display: inline-block;
-    margin-top: -18px;
+
   }
 }
 
@@ -104,7 +104,8 @@ ul.topnav li.icon {display: none;}
   ul.topnav.responsive li.icon {
     position: absolute;
     right: 0;
-    top: 20;
+    top: 0;
+
   }
   ul.topnav.responsive li {
     float: none;
