@@ -1,13 +1,19 @@
-<style>
-  /* Always set the map height explicitly to define the size of the div
-   * element that contains the map. */
-  #map {
+body {
+    background-color: #f0f0f0;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Verdana";
+    color: #666666;
+    font-size: 2.5em;
+
+}
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
     height: 100%;
-  }
-  /* Optional: Makes the sample page fill the window. */
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-</style>
+}
+
+
