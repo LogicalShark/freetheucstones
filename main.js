@@ -25,6 +25,7 @@ function register()
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
+  getData();
 }
 function login()
 {
@@ -32,20 +33,30 @@ function login()
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
+  getData();
 }
 function getData()
 {
   console.log(username);
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
     var s = snapshot.val();
-    data = []
+    var data = []
     for(var key in s) {
       var stones = s[key].stones;
       var bosses = s[key].bosses;
       data.push([stones,bosses]);
     }
+    var st = document.createElement("p");
+    st.id="stones";
+    st.innerHTML = data[0];
+    st.style="display:none;";
+    var bo = document.createElement("p");    
+    bo.id="bosses";
+    bo.innerHTML = data[1];
+    bo.style="display:none;";
+    document.body.appendChild(st);
+    document.body.appendChild(bo);
   });
-  return data;
 }
 function bf1()
 {
@@ -70,13 +81,15 @@ function bf5()
 function bossEncounter()
 {
   alert("A boss is approaching!");
-  switch(getData()[1])
+  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+  switch(data[1])
   {
-    case 1: bf1() 
-    case 2: bf2()
-    case 3: bf3()
-    case 4: bf4()
-    case 5: bf5()
+    case 1: bf1(); 
+    case 2: bf2();
+    case 3: bf3();
+    case 4: bf4();
+    case 5: bf5();
+    default: bf5();
   }
 }
 function freeStone()
@@ -88,7 +101,7 @@ function freeStone()
   }
   else
   {
-    var data = getData();
+    var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
     console.log(data[0]);
     firebase.database().ref("users/"+username).set({
       stones:(data[0]+1)
@@ -112,7 +125,7 @@ function defeatBoss()
 {
   alert("Boss defeated!");
   document.getElementById("boss").style="display:none;";
-  var data = getData();
+  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
   firebase.database().ref("users/"+username).set({
     bosses: data[1]+1
   });
@@ -121,7 +134,8 @@ function defeatBoss()
 }
 function bossFightClick()
 {
-  var bossClicks = (getData()[1]*2)+3;
+  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+  var bossClicks = (data[1]*2)+3;
   if(clicks>bossClicks)
   {
    defeatBoss();
@@ -131,10 +145,11 @@ function bossFightClick()
 }
 function bossEncounter()
 {
-  var b = document.createElement(img);
+  var b = document.createElement("img");
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
+  b.style.zIndex = "-100";
   document.getElementById("map").appendChild(b); 
 }
 function stoneComplain()
