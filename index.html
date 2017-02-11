@@ -10,7 +10,7 @@
   <script src="main.js"></script>
 </head>
 <body>
- <ul class="topnav" id="myTopnav" style="position:fixed;">
+ <ul class="topnav" id="myTopnav" style="position:fixed; z-index:2">
  	<hi>Free the UC Stones</hi>
   <li><a href="#map">Map</a></li>
   <li><a href="#stats">Stats</a></li>
@@ -22,7 +22,7 @@
     <a href="javascript:void(0);" onclick="addResponse()">&#9776;</a>
   </li>
 </ul>
-  <div id="map" style="z-index:-10;"></div>
+  <div id="map" style="z-index:1;"></div>
   <script src="markers.js"></script>
 </body>
 <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
