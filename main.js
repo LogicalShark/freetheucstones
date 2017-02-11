@@ -1,4 +1,5 @@
 clicks = 0;
+timer = 0;
 bossClicks = 10;
 username = "";
 exists = false;
@@ -123,15 +124,16 @@ function defeatBoss()
 }
 function bossFightClick()
 {
-  var d;
-  var user = firebase.database().ref("users").child(username);
-  user.on("value", function(snapshot)
-             {
-    d = snapshot.val();
-    var x = d["stones"];
-    var b = d["bosses"];
+//   var d;
+//   var user = firebase.database().ref("users").child(username);
+//   user.on("value", function(snapshot)
+//              {
+//     d = snapshot.val();
+//     var x = d["stones"];
+//     var b = d["bosses"];
+    setInterval(function(){clicks=0;},5000)
     clicks+=1;
-    var bossClicks = (b*2)+3;
+    var bossClicks = 4;
     if(clicks>bossClicks)
     {
      defeatBoss();
