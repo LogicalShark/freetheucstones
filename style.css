@@ -1,3 +1,6 @@
+html {
+font-family: "Verdana";
+}
 body {
     background-color: #f0f0f0;
     margin: auto;
@@ -21,8 +24,18 @@ ul.topnav {
     background-color: #333;
 }
 
+ul.topnav hi {
+		display: inline-block;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding: 14px 16px;
+    text-decoration: bold;
+    transition: 0.3s;
+    font-size: 18px;
+}
+
 /* Float the list items side by side */
-ul.topnav li {float: left;}
+ul.topnav li, hi {float: left;}
 
 /* Style the links inside the list items */
 ul.topnav li a {
