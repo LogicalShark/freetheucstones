@@ -78,7 +78,6 @@ function bossEncounter()
 function freeStone()
 {
   alert("Stone freed!");
-  var data = getData();
   if(username=="")
   {
     alert("Please log in!");
