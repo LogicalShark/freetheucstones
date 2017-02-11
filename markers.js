@@ -86,9 +86,6 @@ function initMap() {
             freed: false
         });
 
-        var textInfowindow = new google.maps.InfoWindow({
-            content: randRockText()
-        });
 
         marker.addListener('click', (function(marker, content, infoWindow){
             return function() {
