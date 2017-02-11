@@ -82,8 +82,8 @@ function bf5()
 function bossEncounter()
 {
   alert("A boss is approaching!");
-  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-  switch(data[1])
+//   var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+  switch(1)
   {
     case 1: bf1(); 
     case 2: bf2();
