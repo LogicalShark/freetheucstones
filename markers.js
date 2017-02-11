@@ -20,15 +20,24 @@ function initMap() {
     var lat1 = 40.441393;
     var lon1 = -79.940703;
 
-    var normalRocks = ["images/rock_small2_1.png", "images/rock_small2.png"];
 
-    var colorRocks = [
+    var rockPaths = [
+        "images/rock_small2_1.png",
+        "images/rock_small2.png",
         "images/rock_small3.png",
         "images/rock_small4.png",
         "images/rock_small5.png",
         "images/rock_small6.png"];
 
-    var rock_small2 = "images/rock_small2.png";
+    var freeRockPaths = [
+        "images/rock_small_free2.png",
+        "images/rock_small_free2.png",
+        "images/rock_small_free3.png",
+        "images/rock_small_free4.png",
+        "images/rock_small_free5.png",
+        "images/rock_small_free6.png"
+    ];
+
 
     for (var i = 0; i < stones; i++)
     {
@@ -37,10 +46,10 @@ function initMap() {
 
         var rockChance = Math.random();
         var rockIcon;
-        if (rockChance < 0.5) {
-            rockIcon = randChoice(normalRocks);
+        if (rockChance < 0.7) {
+            rockIcon = randChoice(rockPaths.slice(0,2));
         } else {
-            rockIcon = randChoice(colorRocks);
+            rockIcon = randChoice(rockPaths.slice(2));
         }
 
         //console.log(rockIcon);
