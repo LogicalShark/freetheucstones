@@ -35,9 +35,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 clicks = 0;
 bossClicks = 10;
 function login()
-{ 
+{
   var storage = firebase.storage();
   var storageRef = storage.ref();
+  var imagesRef = storageRef.child(document.getElementById("username"));
 }
 function freeStone()
 {
