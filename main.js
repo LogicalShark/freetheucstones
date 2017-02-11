@@ -39,6 +39,7 @@ function getData()
   data = []
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
     var Dstones = snapshot.val().stones;
+    console.log(Dstones);
     var Dbosses = snapshot.val().bosses;
     var Dlevel = snapshot.val().level;
     data = [Dstones,Dbosses,Dlevel]
