@@ -15,6 +15,30 @@ h1 {
 
 }
 
+input
+{
+    background: #EEE;
+    height: 20px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    border: 2px solid white;
+    border-radius: 2px;
+}
+
+#login, #register
+{
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 10px;
+	mragin-bottom: 10px;
+	border: solid white;
+}
+
  /* Remove margins and padding from the list, and add a black background color */
 ul.topnav {
     list-style-type: none;
@@ -22,15 +46,16 @@ ul.topnav {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+    width: 100%;
 }
 
 ul.topnav hi {
-		display: inline-block;
-    color: #f2f2f2;
-    font-weight: bold;
-    padding: 14px 16px;
-    text-decoration: bold;
-    transition: 0.3s;
+
+    color: #f2f2f2 !important;
+    font-weight: bold !important;
+    padding: 14px 16px !important;
+    text-decoration: bold !important;
+
     font-size: 18px;
 }
 
@@ -75,6 +100,12 @@ ul.topnav li.icon {display: none;}
     float: none;
     display: inline;
   }
+  
+  ul.topnav.responsive hi {
+    float: none;
+    display: block;
+  }
+  
   ul.topnav.responsive li a {
     display: block;
     text-align: left;
