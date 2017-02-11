@@ -1,90 +1,97 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style> 
-.flex-container {
-    display: -webkit-flex;
-    display: flex;  
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    text-align: center;
-}
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    .flex-container {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: row wrap;
+      flex-flow: row wrap;
+      text-align: center;
+    }
 
-.flex-container > * {
-    padding: 15px;
-    -webkit-flex: 1 100%;
-    flex: 1 100%;
-}
+    .flex-container > * {
+      padding: 15px;
+      -webkit-flex: 1 100%;
+      flex: 1 100%;
+    }
 
-.article {
-    text-align: left;
-}
+    .article {
+      text-align: left;
+    }
 
-header {background: black;color:white;}
-footer {background: #aaa;color:white;}
-.nav {background:#eee;}
+    header {background: black;color:white;}
+    footer {
+      background: #aaa;
+      color:white;
+      font-size:15px;
+    }
+    .nav {background:#eee;}
 
-.nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-.nav ul a {
-    text-decoration: none;
-}
+    .nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .nav ul a {
+      text-decoration: none;
+    }
 
-@media all and (min-width: 768px) {
-    .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
-    .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
-    footer {-webkit-order:3;order:3;}
-}
-</style>
+    @media all and (min-width: 768px) {
+      .nav {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
+      .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
+      footer {-webkit-order:3;order:3;}
+    }
+
+
+  </style>
 </head>
 <body>
 
 <div class="flex-container">
-<header>
-  <h1>Free the UC Stones!</h1>
-</header>
+  <header>
+    <h1>Free the UC Stones!</h1>
+  </header>
 
-<nav class="nav">
-<ul>
-  <li><a href="#">About FtUCS</a></li>
-  <li><a href="#">Special Thanks</a></li>
-</ul>
-</nav>
+  <nav class="nav">
+    <ul>
+      <li><a href="#">About FtUCS</a></li>
+      <li><a href="#">Special Thanks</a></li>
+    </ul>
+  </nav>
 
-<article class="article">
-  <h1>About FtUCS</h1>
-  <p>
-    In this country founded on the principles of freedom, there is a grave
-    injustice that persists to this day. Semester after semester, the UC stones
-    remain locked away at the forefront of this University Center.
-    Tartans crossing the cut, pedestrians traversing Forbes, and students
-    exercising in the gym all frequently bear witness to this reprehensible
-    tragedy, much to their chagrin.
-</p>
-  <p>
-    To help alleviate people of the infinite distress that this sighthas caused
-    them, we have developed the mobile service FtUCS. In FtUCS, users are given
-    the ability to free the UC Stones! But beware, as there are all sorts of
-    villains looking to keep these stones caged. Once a player has exhausted
-    the encounters available in the game, it’s still not over. Compete with
-    your friends to see who can restore the most justice at CMU! Play FtUCS
-    today, available for all mobile platforms on
-    logicalshark.github.io/freetheucstones/.
-
-
-  </p>
-  <br> <br> <br>
+  <article class="article">
+    <h1>About FtUCS</h1>
+    <p>
+      In this country founded on the principles of freedom, there is a grave
+      injustice that persists to this day. Semester after semester, the UC stones
+      remain locked away at the forefront of this University Center.
+      Tartans crossing the cut, pedestrians traversing Forbes, and students
+      exercising in the gym all frequently bear witness to this reprehensible
+      tragedy, much to their chagrin.
+    </p>
+    <p>
+      To help alleviate people of the infinite distress that this sighthas caused
+      them, we have developed the mobile service FtUCS. In FtUCS, users are given
+      the ability to free the UC Stones! But beware, as there are all sorts of
+      villains looking to keep these stones caged. Once a player has exhausted
+      the encounters available in the game, it’s still not over. Compete with
+      your friends to see who can restore the most justice at CMU! Play FtUCS
+      today, available for all mobile platforms on
+      logicalshark.github.io/freetheucstones/.
 
 
-</article>
+    </p>
+    <br> <br> <br>
+
+
+  </article>
 
 
 
-<footer>
-  Powered by <img src="http://vanilla-js.com/assets/button.png">
-</footer>
+  <footer>
+    Powered by <img src="http://vanilla-js.com/assets/button.png">
+  </footer>
 </div>
 
 </body>
