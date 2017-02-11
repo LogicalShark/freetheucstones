@@ -61,35 +61,45 @@ function getData()
 }
 function bf1()
 {
-  alert("Looks like you’re out of blocks!"); 
-  window.location("battle.html");
-//   var b = document.createElement("IMG");
-//   b.src="images/culinart.png";
-//   b.id="boss";
-//   b.onClick = "bossFightClick()";
-//   b.style = "position:fixed,width:100%,height:100%,z-index:-100";
-//   document.body.appendChild(b);
-//   console.log("asdf");
 }
 function bf2()
 {
   alert("This’ll only take a single 112 minute!"); 
-  window.location("battle2.html");
+  
 }
 function bf3()
 {
  alert("It’s “Doctor President” Subra Suresh!"); 
-  window.location("battle3.html");
+  
 }
 function bf4()
 {
  alert("Who even am I?"); 
-  window.location("battle4.html");
+  
 }
 function bf5()
 {
  alert("I’ve got nerves of steel!"); 
-  window.location("battle5.html");
+}
+function bossEncounter()
+{ 
+  alert("A boss is approaching!");
+  bf1();
+  switch(1)
+  {
+    case 1: window.location("battle.html");
+      break;
+    case 2: window.location("battle2.html");
+      break;
+    case 3: window.location("battle3.html");
+      break;
+    case 4: window.location("battle4.html");
+      break;
+    case 5:   window.location("battle5.html");
+      break;
+    default: window.location("battle5.html");
+  }
+
 }
 function freeStone()
 {
@@ -149,25 +159,6 @@ function bossFightClick()
    clicks = 0;
   }
   clicks+=1;
-}
-function bossEncounter()
-{ 
-  alert("A boss is approaching!");
-  switch(1)
-  {
-    case 1: bf1();
-      break;
-    case 2: bf2();
-      break;
-    case 3: bf3();
-      break;
-    case 4: bf4();
-      break;
-    case 5: bf5();
-      break;
-    default: bf5();
-  }
-
 }
 
 function loadLeaderboard()
