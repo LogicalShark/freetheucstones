@@ -5,7 +5,7 @@ exists = false;
 function register()
 {
   username = document.getElementById("username").value;
-  usersRef.once('value', function(snapshot) {
+  firebase.database().once('value', function(snapshot) {
     if (snapshot.hasChild(username)) {
       exists = true;
     }
