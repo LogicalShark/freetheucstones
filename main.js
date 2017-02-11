@@ -144,8 +144,9 @@ function loadLeaderboard()
   });
   var userId = firebase.auth().currentUser.uid;
   return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-  var username = snapshot.val().username;
-  document.getElementById("leaderboard").innerHTML = stones+" "+bosses+" "+username+"<br>";
+    var username = snapshot.val().username;
+    document.getElementById("leaderboard").innerHTML = stones+" "+bosses+" "+username+"<br>";
+  });
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
