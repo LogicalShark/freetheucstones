@@ -81,13 +81,15 @@ function bf5()
 function bossEncounter()
 {
   alert("A boss is approaching!");
-  switch()
+  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+  switch(data[1])
   {
-    case 1: bf1() 
-    case 2: bf2()
-    case 3: bf3()
-    case 4: bf4()
-    case 5: bf5()
+    case 1: bf1(); 
+    case 2: bf2();
+    case 3: bf3();
+    case 4: bf4();
+    case 5: bf5();
+    default: bf5();
   }
 }
 function freeStone()
