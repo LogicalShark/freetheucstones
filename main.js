@@ -25,7 +25,7 @@ function register()
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
-  getData();
+//   getData();
 }
 function login()
 {
@@ -33,7 +33,7 @@ function login()
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
-  getData();
+//   getData();
 }
 function getData()
 {
@@ -82,8 +82,8 @@ function bf5()
 function bossEncounter()
 {
   alert("A boss is approaching!");
-  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-  switch(data[1])
+//   var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+  switch(1)
   {
     case 1: bf1(); 
     case 2: bf2();
@@ -104,7 +104,7 @@ function freeStone()
   {
     var d;
     var user = firebase.database().ref("users").child(username);
-    player1.on("value", function(snapshot)
+    user.on("value", function(snapshot)
                {
       d = snapshot.val();
       d["stones"] += 1;
