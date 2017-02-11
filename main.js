@@ -93,7 +93,6 @@ function freeStoneClick()
   }
   clicks+=1;
 }
-
 function defeatBoss()
 {
   alert("Boss defeated!");
@@ -102,15 +101,26 @@ function defeatBoss()
   firebase.database().ref(username).set({
     bosses: getData()[1]+1
   });
+  var elem = document.getElementById("boss");
+  elem.parentNode.removeChild(elem);
 }
 function bossFightClick()
 {
+  var bossClicks = (getData()[1]*2)+3;
   if(clicks>bossClicks)
   {
    defeatBoss();
    clicks = 0;
   }
   clicks+=1;
+}
+function bossEncounter()
+{
+  var b = document.createElement(img);
+  b.src="images/culinart.png";
+  b.id="boss";
+  b.onClick = "bossFightClick()";
+  document.getElementById("map").appendChild(b); 
 }
 function stoneComplain()
 {
