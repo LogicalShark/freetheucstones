@@ -120,7 +120,7 @@ function freeStoneClick()
 function defeatBoss()
 {
   alert("Boss defeated!");
-  document.getElementById("boss").style="display:none;";
+  document.getElementById("boss").src="images/explosion.png";
 }
 function bossFightClick()
 {
