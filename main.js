@@ -90,7 +90,20 @@ function bossFightClick()
   }
   clicks+=1;
 }
-
+function stoneComplain()
+{
+  var x = Math.random()<0.1;
+  if(x<0.1)
+    alert("Call the campus police!");
+  else if(x<0.2)
+    alert("This doesn’t rock at all");
+  else if(x<0.3)
+    alert("Don't take me for granite");
+  else if(x<0.4)
+    alert("Give me liberty or give me liberty!");
+  else if(x<0.5)
+    alert("Help me!");
+}
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
     var x = document.getElementById("myTopnav");
