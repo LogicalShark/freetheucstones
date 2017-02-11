@@ -36,21 +36,33 @@ function login()
 //   getData();
 }
 function bossEncounter()
-{ 
-  switch(Math.floor(Math.random()*5))//b
-  {
-    case 0: window.location.assign("battle.html");
-      break;
-    case 1: window.location.assign("battle1.html");
-      break;
-    case 2: window.location.assign("battle2.html");
-      break;
-    case 3: window.location.assign("battle3.html");
-      break;
-    case 4: window.location.assign("battle4.html");
-      break;
-    default: window.location.assign("battle.html");
-  }
+{
+  var d;
+  var user = firebase.database().ref("users").child(username);
+  user.on("value", function(snapshot)
+             {
+    d = snapshot.val();
+    var x = d["stones"];
+    var b = d["bosses"];
+      if(b>0)
+    {
+      switch(Math.floor(Math.random()*5))//b
+      {
+        case 0: window.location.assign("battle.html");
+          break;
+        case 1: window.location.assign("battle1.html");
+          break;
+        case 2: window.location.assign("battle2.html");
+          break;
+        case 3: window.location.assign("battle3.html");
+          break;
+        case 4: window.location.assign("battle4.html");
+          break;
+        default: window.location.assign("battle.html");
+      }
+    }
+    });
+  });
 }
 function freeStone()
 {
@@ -67,16 +79,16 @@ function freeStone()
                {
       d = snapshot.val();
       var x = d["stones"] + 1;
-      var b = d["bosses"];
+      var b = d["bosses"] + 1;
+      if(Math.random()<.5) //0.2
+      {
+        alert("A boss is has challenged you! Use the Battle tab to fight!");
+      }
       user.update({
         "stones": x,
         "bosses": b
       });
     });
-    if(Math.random()<.5) //0.2
-    {
-      alert("A boss is has challenged you! Use the Battle tab to fight!");
-    }
   }
 }
 function freeStoneClick()
