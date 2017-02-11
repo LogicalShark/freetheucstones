@@ -34,15 +34,37 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 clicks = 0;
 bossClicks = 10;
+username = "";
+function register()
+{
+  username = document.getElementById("username");
+  firebase.database().ref(username).set({
+    stones: 0,
+    bosses: 0,
+    level: 0
+  });
+}
 function login()
 {
-  var storage = firebase.storage();
-  var storageRef = storage.ref();
-  var imagesRef = storageRef.child(document.getElementById("username"));
+  username = document.getElementById("username");
+}
+function getData()
+{
+  firebase.database().ref(username).once('value').then(function(snapshot) {
+    var stones = snapshot.val().stones;
+    var bosses = snapshot.val().bosses;
+    var level = snapshot.val().level;
+  }
+  return [stones,bosses,level];
 }
 function freeStone()
 {
   alert("Stone freed!");
+  document.getElementById("cage").style="display:none;";
+  var data = getData();
+  firebase.database().ref(username).set({
+    stones: getData()[0]+1
+  });
 }
 function freeStoneClick()
 {
@@ -58,6 +80,10 @@ function defeatBoss()
 {
   alert("Boss defeated!");
   document.getElementById("boss").style="display:none;";
+  var data = getData();
+  firebase.database().ref(username).set({
+    bosses: getData()[1]+1
+  });
 }
 function bossFightClick()
 {
