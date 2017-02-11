@@ -38,11 +38,12 @@ function getData()
   console.log(username);
   data = []
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
-    var Dstones = snapshot.val().stones;
-    console.log(Dstones);
-    var Dbosses = snapshot.val().bosses;
-    var Dlevel = snapshot.val().level;
-    data = [Dstones,Dbosses,Dlevel]
+    var s = snapshot.val();
+    for(var key in s) {
+        s[key].stones = stones;
+        s[key].bosses = bosses;
+    }
+    data = s;
   });
   return data;
 }
