@@ -37,11 +37,11 @@ function getData()
 {
   console.log(username);
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
-    var stones = snapshot.val().stones;
-    var bosses = snapshot.val().bosses;
-    var level = snapshot.val().level;
-    return [stones,bosses,level];
+    Dstones = snapshot.val().stones;
+    Dbosses = snapshot.val().bosses;
+    Dlevel = snapshot.val().level;
   });
+  return [Dstones,Dbosses,Dlevel];
 }
 function bf1()
 {
