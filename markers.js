@@ -8,6 +8,36 @@ function randChoice(myArray) {
 }
 
 markers = [];
+
+function randRockText() {
+    var x = Math.random();
+    var rockText;
+    if(x<0.1)
+        rockText = "Call the campus police!";
+    else if(x<0.2)
+        rockText = "This doesn’t rock at all";
+    else if(x<0.3)
+        rockText = "Don't take me for granite";
+    else if(x<0.4)
+        rockText = "Give me liberty or give me liberty!";
+    else if(x<0.5)
+        rockText = "Help me...";
+    else if(x<0.6)
+        rockText = "It feels like I've hit rock bottom.";
+    else if(x<0.7)
+        rockText = "Leave no stone unturned!";
+    else if(x<0.8)
+        rockText = "Saving me is sedimentary my dear watson";
+    else if(x<0.9)
+        rockText = "The real jailhouse rock.";
+    else if(x<0.99)
+        rockText = "You need to be boulder to save me";
+    else
+        rockText = "Thanks for playing FUCS!";
+
+    return rockText;
+}
+
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
@@ -20,6 +50,8 @@ function initMap() {
     var lat1 = 40.441393;
     var lon1 = -79.940703;
 
+    infoWindow = new google.maps.InfoWindow({map: map});
+
 
     rockPaths = [
         "images/rock_small2_1.png",
@@ -28,32 +60,6 @@ function initMap() {
         "images/rock_small4.png",
         "images/rock_small5.png",
         "images/rock_small6.png"];
-
-    var x = Math.random();
-    var rockText;
-    if(x<0.1)
-        rockText = "Call the campus police!";
-    else if(x<0.2)
-        alert("This doesn’t rock at all");
-    else if(x<0.3)
-        alert("Don't take me for granite");
-    else if(x<0.4)
-        alert("Give me liberty or give me liberty!");
-    else if(x<0.5)
-        alert("Help me...");
-    else if(x<0.6)
-        alert("It feels like I've hit rock bottom.");
-    else if(x<0.7)
-        alert("Leave no stone unturned!");
-    else if(x<0.8)
-        alert("Saving me is sedimentary my dear watson");
-    else if(x<0.9)
-        alert("The real jailhouse rock.");
-    else if(x<0.99)
-        alert("You need to be boulder to save me");
-    else
-        alert("Thanks for playing FtUCS!");
-
 
 
     for (var i = 0; i < stones; i++)
@@ -77,11 +83,21 @@ function initMap() {
             icon: rockIcon,
             title:"UC Stone"
         });
-        marker.addListener('click', function(){stoneComplain()});
+
+        var textInfowindow = new google.maps.InfoWindow({
+            content: randRockText()
+        });
+
+        marker.addListener('click', (function(marker, content, infoWindow){
+            return function() {
+                infoWindow.setContent(content);
+                infoWindow.open(map, marker);
+            };
+        })(marker, randRockText(),infoWindow));
         markers.push(marker);
     }
 
-    infoWindow = new google.maps.InfoWindow({map: map});
+
 }
 function detect()
 {
