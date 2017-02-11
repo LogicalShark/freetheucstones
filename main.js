@@ -149,11 +149,16 @@ function bossEncounter()
   alert("A boss is approaching!");
   switch(1)
   {
-    case 1: bf1(); 
+    case 1: bf1();
+      break;
     case 2: bf2();
+      break;
     case 3: bf3();
+      break;
     case 4: bf4();
+      break;
     case 5: bf5();
+      break;
     default: bf5();
   }
 
