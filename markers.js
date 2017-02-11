@@ -32,7 +32,7 @@ function initMap() {
     }
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function(position) {
-            pos = {
+            var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
           };
