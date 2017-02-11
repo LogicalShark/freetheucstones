@@ -38,8 +38,8 @@ button
 	margin-bottom: 10px;
 	border: solid #F2F2F2;
 	background-color: #F2F2F2;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
 	padding-top: 4px;
 	padding-bottom: 4px;
 }
@@ -60,13 +60,13 @@ ul.topnav {
 }
 
 ul.topnav hi {
-
+		display: inline-block;
     color: #f2f2f2 !important;
     font-weight: bold !important;
     padding: 14px 16px !important;
     text-decoration: bold !important;
 
-    font-size: 18px;
+    font-size: 20px;
 }
 
 /* Float the list items side by side */
