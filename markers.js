@@ -2,7 +2,7 @@
 function randRange(min, max) {
     return Math.random() * (max - min) + min;
 }
-markers = [];    
+markers = [];
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
@@ -45,6 +45,7 @@ function detect()
               if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.0014) //.00014
               {
                   freeStone();
+                  markers.splice(i);
               }
           }
       }, function() {
