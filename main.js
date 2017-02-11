@@ -171,7 +171,7 @@ function loadLeaderboard()
       var level = childSnapshot.val().level;
       data.append([lastKey,stones,bosses]);
 //       document.getElementById("leaderboard").innerHTML += lastKey+" "+stones+" "+bosses+" "++"<br>";      
-      }
+      });
     });
   });
 }
