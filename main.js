@@ -36,12 +36,14 @@ function login()
 function getData()
 {
   console.log(username);
+  data = []
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
-    Dstones = snapshot.val().stones;
-    Dbosses = snapshot.val().bosses;
-    Dlevel = snapshot.val().level;
+    var Dstones = snapshot.val().stones;
+    var Dbosses = snapshot.val().bosses;
+    var Dlevel = snapshot.val().level;
+    data = [Dstones,Dbosses,Dlevel]
   });
-  return [Dstones,Dbosses,Dlevel];
+  return data;
 }
 function bf1()
 {
