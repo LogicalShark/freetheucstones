@@ -65,7 +65,7 @@ function detect()
           var myLat = position.coords.latitude;
           var myLng = position.coords.longitude;
           var myPos = {lat: myLat, lng: myLng};
-          infoWindow(myPos);
+          infoWindow.setPosition(myPos);
           infoWindow.setContent("My location");
 
           var myCircle = new google.maps.Circle({
@@ -74,11 +74,11 @@ function detect()
               strokeWeight: 2,
               fillColor: '#FF0000',
               fillOpacity: 0.35,
-              map: map,
+              setMap: map,
               center: myPos,
               radius: 50
           });
-          
+
 
           // Markers stuff
           for(var i = 0; i<markers.length; i++)
