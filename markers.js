@@ -133,7 +133,7 @@ function detect()
 
           // Markers stuff
 
-
+          var alerted = false;
           for(var i = 0; i<markers.length; i++)
           {
               var m = markers[i];
@@ -143,8 +143,11 @@ function detect()
                   Math.pow((myLng-markerlng), 2));
               if( dist <=.0014) //.00014
               {
-                  console.log("Attempting to free stone");
-                  freeStone();
+                  if(!alerted)
+                  {
+                    freeStone();
+                    alerted = true;
+                  }
                   iconIndex = rockPaths.indexOf(markers[i].getIcon());
                   markers[i].setIcon(freeRockPaths[iconIndex]);
                   console.log(markers[i].getIcon())
