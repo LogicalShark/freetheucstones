@@ -41,7 +41,7 @@ function randRockText() {
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
-    var map = new google.maps.Map(document.getElementById("map"), {
+    map = new google.maps.Map(document.getElementById("map"), {
         zoom: 17,
         center: centerLocation
     });
@@ -119,6 +119,7 @@ function showMyPosition(position)
     var myPos = {lat: myLat, lng: myLng};
     infoWindow.setPosition(myPos);
     infoWindow.setContent("My location");
+    infoWindow.open(map);
 
     var myCircle = new google.maps.Circle({
         strokeColor: '#FF0000',
