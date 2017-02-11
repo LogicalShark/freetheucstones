@@ -85,8 +85,9 @@ function freeStone()
   }
   else
   {
+    var data = getData();
     firebase.database().ref("users/"+username).set({
-      stones: getData()[0]+1
+      stones: data[0]+1
     });
     if(data[0]%4==0 || Math.random()<1) //0.2
     {
@@ -109,7 +110,7 @@ function defeatBoss()
   document.getElementById("boss").style="display:none;";
   var data = getData();
   firebase.database().ref("users/"+username).set({
-    bosses: getData()[1]+1
+    bosses: data[1]+1
   });
   var elem = document.getElementById("boss");
   elem.parentNode.removeChild(elem);
