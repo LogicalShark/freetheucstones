@@ -60,8 +60,14 @@ function getData()
   });
 }
 function bf1()
-{
- alert("Looks like you’re out of blocks!"); 
+{ 
+  alert("Looks like you’re out of blocks!"); 
+  var b = document.createElement("img");
+  b.src="images/culinart.png";
+  b.id="boss";
+  b.onClick = "bossFightClick()";
+  b.style = "position:fixed,width:100%,height:100%";
+  document.body.appendChild(b);
 }
 function bf2()
 {
@@ -78,20 +84,6 @@ function bf4()
 function bf5()
 {
  alert("I’ve got nerves of steel!"); 
-}
-function bossEncounter()
-{
-  alert("A boss is approaching!");
-//   var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-  switch(1)
-  {
-    case 1: bf1(); 
-    case 2: bf2();
-    case 3: bf3();
-    case 4: bf4();
-    case 5: bf5();
-    default: bf5();
-  }
 }
 function freeStone()
 {
@@ -114,6 +106,7 @@ function freeStone()
         "bosses": b
       });
     });
+    console.log("boss");
     if(Math.random()<1) //0.2
     {
       bossEncounter();
@@ -152,13 +145,18 @@ function bossFightClick()
   clicks+=1;
 }
 function bossEncounter()
-{
-  var b = document.createElement("img");
-  b.src="images/culinart.png";
-  b.id="boss";
-  b.onClick = "bossFightClick()";
-  b.style = "z-index:-100;position:fixed";
-  document.body.appendChild(b); 
+{ 
+  alert("A boss is approaching!");
+  switch(1)
+  {
+    case 1: bf1(); 
+    case 2: bf2();
+    case 3: bf3();
+    case 4: bf4();
+    case 5: bf5();
+    default: bf5();
+  }
+
 }
 
 function loadLeaderboard()
