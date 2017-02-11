@@ -119,6 +119,14 @@ function stoneComplain()
     alert("Give me liberty or give me liberty!");
   else if(x<0.5)
     alert("Help me!");
+  else if(x<0.6)
+    alert("It feels like I've hit rock bottom.")
+  else if(x<0.7)
+    alert("Leave no stone unturned!")
+  else if(x<0.8)
+    alert("Saving me is sedimentary my dear watson")
+  else if(x<0.9)
+    alert("The real jailhouse rock.")
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
