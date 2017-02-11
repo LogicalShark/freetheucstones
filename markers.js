@@ -96,7 +96,9 @@ function detect()
               var m = markers[i];
               var markerlat = m.getPosition().lat();
               var markerlng = m.getPosition().lng();
-              if(Math.sqrt((myLat-markerlat)^2 + (myLng-markerlng)^2)<=.0014) //.00014
+              var dist = Math.sqrt(Math.pow((myLat-markerlat), 2) +
+                  Math.pow((myLng-markerlng), 2));
+              if( dist <=.0014) //.00014
               {
                   console.log("Attempting to free stone");
                   freeStone();
