@@ -37,6 +37,22 @@ function bf1()
 {
  alert("Looks like you’re out of blocks!"); 
 }
+function bf2()
+{
+ alert("This’ll only take a single 112 minute!"); 
+}
+function bf3()
+{
+ alert("It’s “Doctor President” Subra Suresh!"); 
+}
+function bf4()
+{
+ alert("Who even am I?"); 
+}
+function bf5()
+{
+ alert("I’ve got nerves of steel!"); 
+}
 function bossEncounter()
 {
   alert("A boss is approaching!");
