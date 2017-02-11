@@ -60,7 +60,7 @@ function bossEncounter()
       d = snapshot.val();
       var x = d["stones"];
       var b = d["bosses"];
-      switch(Math.floor(Math.random()*6))//b
+      switch(Math.floor(Math.random()*5))//b
       {
         case 0: window.location.assign("battle.html");
           break;
@@ -72,8 +72,8 @@ function bossEncounter()
           break;
         case 4: window.location.assign("battle4.html");
           break;
-        case 5: window.location.assign("battle5.html");
-          break;
+//         case 5: window.location.assign("battle5.html");
+//           break;
         default: window.location.assign("battle.html");
       }
       user.update({
