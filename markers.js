@@ -16,7 +16,7 @@ function initMap() {
     var lat1 = 40.441393;
     var lon1 = -79.940703;
 
-    var rock_small2 = "rock_small2.png";
+    var rock_small2 = "images/rock_small2.png";
 
     var markers = [];
     for (var i = 0; i < stones; i++)
@@ -29,6 +29,6 @@ function initMap() {
         });
         markers.push(marker);
     }
-
-    console.log(markers);
 }
+
+
