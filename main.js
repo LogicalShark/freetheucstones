@@ -56,6 +56,7 @@ function getData()
     bo.style="display:none;";
     document.body.appendChild(st);
     document.body.appendChild(bo);
+    console.log(data[1]);
   });
 }
 function bf1()
@@ -149,8 +150,8 @@ function bossEncounter()
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
-  b.style.zIndex = "-100";
-  document.getElementById("map").appendChild(b); 
+  b.style = "z-index:-100;position:fixed";
+  document.body.appendChild(b); 
 }
 function stoneComplain()
 {
