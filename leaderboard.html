@@ -1,6 +1,10 @@
 <html>
 <head>
 <title>High Scores!</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="icon" href="images/favicon.ico">
 <style>
 table {
     font-family: arial, sans-serif;
@@ -19,18 +23,23 @@ tr:nth-child(even) {
 </head>
 <body>
 <ul class="topnav" id="myTopnav" style="position:fixed; z-index:2">
-  <li><a href="/freetheucstones">Return to game</a></li>
-  <li><a href="#map">Map</a></li>
+	<hi>Free the UC Stones</hi>
+  <li><a href=index.html>Map</a></li>
   <li><a href="#stats">Stats</a></li>
   <li><a href="#battle">Battle</a></li>
+  <li><a href="leaderboard.html">Leaderboard</a></li>
+  <li><input type="text" id="username" placeholder="Username"></li>
+  <li><button onClick="login()" id="login">Login</button></li>
+  <li><button onClick="register()" id="register">Register</button></li>
   <br>
     <li class="icon">
     <a href="javascript:void(0);" onclick="addResponse()">&#9776;</a>
   </li>
 </ul>
-
 <table>
+
   <tr>
+  
     <th>Player</th>
     <th>Stones Freed</th>
     <th>Bosses Slain</th>
