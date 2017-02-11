@@ -131,14 +131,14 @@ function bossFightClick()
 //     d = snapshot.val();
 //     var x = d["stones"];
 //     var b = d["bosses"];
-    setInterval(function(){clicks=0;},5000)
-    clicks+=1;
-    var bossClicks = 4;
-    if(clicks>bossClicks)
-    {
+//     setInterval(function(){clicks=0;},5000)
+//     clicks+=1;
+//     var bossClicks = 4;
+//     if(clicks>bossClicks)
+//     {
      defeatBoss();
-     clicks = 0;
-    }
+//      clicks = 0;
+//     }
 //   });
 }
 
