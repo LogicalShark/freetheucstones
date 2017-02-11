@@ -13,28 +13,23 @@
 var audio = new Audio('images/Auld Lang Syne - Bagpipes.mp3');
 audio.play();
 </script>
- <ul class="topnav" id="myTopnav" style="position:fixed; z-index:2">
- 	<hi>Free the UC Stones</hi>
-  <li><a href="#map">Map</a></li>
-  <li><a href="stats.html">Stats</a></li>
+<ul class="topnav" id="myTopnav" style="position:fixed; z-index:2">
+	<hi>Free the UC Stones</hi>
+  <li><a href=index.html>Map</a></li>
+  <li><a href="#stats">Stats</a></li>
   <li><a href="#battle">Battle</a></li>
   <li><a href="leaderboard.html">Leaderboard</a></li>
-  <li><a href="about.html">About</a></li>
   <li><input type="text" id="username" placeholder="Username"></li>
   <li><button onClick="login()" id="login">Login</button></li>
   <li><button onClick="register()" id="register">Register</button></li>
-  <li><button onClick="detect()" id="detect">Detect</button></li>
-   <li class="icon">
+    <li class="icon">
     <a href="javascript:void(0);" onclick="addResponse()">&#9776;</a>
   </li>
 </ul>
-  <div id="map" style="z-index:1;"></div>
-  <div id="/freetheucstones/leaderboard" style="z-index:1;"></div>
-  <div id="/freetheucstones/about" style="z-index:1;"></div>
 <br>
 <br>
 <br>
-<marquee direction="down" behavior="alternate" scrollamount = "50">
+<marquee direction="down" width="100%" height="100%" behavior="alternate" scrollamount = "100">
   <marquee behavior="alternate">
 	<img src="images/andrew1.png" onClick="bossFightClick()">  
 	</marquee>
