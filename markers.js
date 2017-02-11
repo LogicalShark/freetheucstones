@@ -2,6 +2,7 @@
 function randRange(min, max) {
     return Math.random() * (max - min) + min;
 }
+markers = [];    
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
@@ -16,7 +17,6 @@ function initMap() {
 
     var rock_small2 = "images/rock_small2.png";
 
-    var markers = [];
     for (var i = 0; i < stones; i++)
     {
         var marker = new google.maps.Marker({
@@ -35,14 +35,18 @@ function detect()
 {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-
-        infoWindow.setPosition(pos);
-        infoWindow.setContent('Location found.');
-        map.setCenter(pos);
+          var lat: position.coords.latitude;
+          var lng: position.coords.longitude;
+          for(var i = 0; i<markers.length; i++)
+          {
+              var m = markers[i];
+              var markerlat = m.getPosition().lat();
+              var markerlng = m.getPosition().lng();
+              if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.0014) //.00014
+              {
+                  freeStone();
+              }
+          }
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });

@@ -29,7 +29,11 @@ input[type=text] {
     border: 2px solid #F2F2F2;
 }
 
+<<<<<<< HEAD
 button
+=======
+#login, #register, #detect
+>>>>>>> 3ae23a2e8ab6709db034daf6cc912123e3179b09
 {
 	margin-left: 5px;
 	margin-right: 5px;
