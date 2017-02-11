@@ -145,10 +145,11 @@ function bossFightClick()
 }
 function bossEncounter()
 {
-  var b = document.createElement(img);
+  var b = document.createElement("img");
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
+  b.style.zIndex = "-100";
   document.getElementById("map").appendChild(b); 
 }
 function stoneComplain()
