@@ -27,6 +27,7 @@ input
 
 input[type=text] {
     border: 2px solid #F2F2F2;
+    margin-left: 15px;
 }
 
 button
@@ -41,6 +42,11 @@ button
 	padding-right: 20px;
 	padding-top: 4px;
 	padding-bottom: 4px;
+}
+
+#detect
+{
+	margin-left: 15px;
 }
 
  /* Remove margins and padding from the list, and add a black background color */
