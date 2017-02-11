@@ -143,4 +143,16 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+.center img {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
