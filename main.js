@@ -38,6 +38,7 @@ username = "";
 function register()
 {
   username = document.getElementById("username").value;
+  console.log(username);
   firebase.database().ref(username).set({
     stones: 0,
     bosses: 0,
