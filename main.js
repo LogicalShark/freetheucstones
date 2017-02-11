@@ -19,7 +19,7 @@ function register()
 }
 function login()
 {
-  username = document.getElementById("username");
+  username = document.getElementById("username").value;
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
