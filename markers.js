@@ -25,7 +25,8 @@ function initMap() {
             position: new google.maps.LatLng(randRange(lat1, lat0),
                                              randRange(lon0, lon1)),
             map: map,
-            icon: rock_small2
+            icon: rock_small2,
+            title:"UC Stone"
         });
         marker.addListener('click', stoneComplain());
         markers.push(marker);
