@@ -42,7 +42,7 @@ function freeStoneClick()
 {
   if(clicks>(Math.random()*10))
   {
-   freeStone()
+   freeStone();
    clicks = 0;
   }
   clicks+=1;
@@ -57,8 +57,11 @@ function bossFightClick()
 {
   if(clicks>(bossClicks)
   {
-   defeatBoss()
+   defeatBoss();
    clicks = 0;
   }
   clicks+=1;
 }
+
+var storage = firebase.storage();
+var storageRef = storage.ref();
