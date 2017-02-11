@@ -68,6 +68,7 @@ function bf1()
   b.onClick = "bossFightClick()";
   b.style = "position:fixed,width:100%,height:100%,z-index:-100";
   document.body.appendChild(b);
+  console.log("asdf");
 }
 function bf2()
 {
