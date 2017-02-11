@@ -10,7 +10,7 @@ function initMap() {
         zoom: 17,
         center: centerLocation
     });
-
+    var infoWindow = new google.maps.InfoWindow({map: map});
     var lat0 = 40.444398;
     var lon0 = -79.946631;
     var lat1 = 40.441393;
