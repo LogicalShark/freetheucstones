@@ -34,25 +34,6 @@ function login()
   document.getElementById("register").style="display:none;";
 //   getData();
 }
-function bf2()
-{
-  alert("This’ll only take a single 112 minute!"); 
-  
-}
-function bf3()
-{
- alert("It’s “Doctor President” Subra Suresh!"); 
-  
-}
-function bf4()
-{
- alert("Who even am I?"); 
-  
-}
-function bf5()
-{
- alert("I’ve got nerves of steel!"); 
-}
 function bossEncounter()
 { 
   alert("A boss is approaching!");
@@ -63,7 +44,7 @@ function bossEncounter()
       d = snapshot.val();
       var x = d["stones"];
       var b = d["bosses"];
-      switch(b)
+      switch(Math.floor(Math.random()*6))//b
       {
         case 0: window.location.assign("battle.html");
           break;
