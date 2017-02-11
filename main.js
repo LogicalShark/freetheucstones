@@ -73,19 +73,23 @@ function bf1()
 }
 function bf2()
 {
- alert("This’ll only take a single 112 minute!"); 
+  alert("This’ll only take a single 112 minute!"); 
+  window.location("battle2.html");
 }
 function bf3()
 {
  alert("It’s “Doctor President” Subra Suresh!"); 
+  window.location("battle3.html");
 }
 function bf4()
 {
  alert("Who even am I?"); 
+  window.location("battle4.html");
 }
 function bf5()
 {
  alert("I’ve got nerves of steel!"); 
+  window.location("battle5.html");
 }
 function freeStone()
 {
