@@ -67,9 +67,21 @@ function getData()
   });
   return [stones,bosses,level];
 }
+bf1()
+{
+ alert("Looks like you’re out of blocks!"); 
+}
 function bossEncounter()
 {
- alert("A boss is approaching!"); 
+  alert("A boss is approaching!");
+  switch(getData()[1])
+  {
+    case 1: bf1() 
+    case 2: bf2()
+    case 3: bf3()
+    case 4: bf4()
+    case 5: bf5()
+  }
 }
 function freeStone()
 {
