@@ -104,7 +104,7 @@ function freeStone()
   {
     var d;
     var user = firebase.database().ref("users").child(username);
-    player1.on("value", function(snapshot)
+    user.on("value", function(snapshot)
                {
       d = snapshot.val();
       d["stones"] += 1;
