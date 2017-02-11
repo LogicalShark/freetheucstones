@@ -114,11 +114,6 @@ function freeStone()
         "bosses": b
       });
     });
-//     var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-//     console.log(data[0]);
-//     firebase.database().ref("users/"+username).set({
-//       stones:(data[0]+1)
-//     });
     if(Math.random()<1) //0.2
     {
       bossEncounter();
