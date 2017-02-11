@@ -73,9 +73,9 @@ function freeStone()
         "bosses": b
       });
     });
-    if(Math.random()<1) //0.2
+    if(Math.random()<.5) //0.2
     {
-      bossEncounter();
+      alert("A boss is has challenged you! Use the Battle tab to fight!");
     }
   }
 }
