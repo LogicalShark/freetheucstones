@@ -5,14 +5,14 @@ exists = false;
 function register()
 {
   username = document.getElementById("username").value;
-  firebase.database().once('value', function(snapshot) {
+  firebase.database().ref("users").once('value', function(snapshot) {
     if (snapshot.hasChild(username)) {
       exists = true;
     }
   });
   if(!exists)
   {
-    firebase.database().ref(username).set({
+    firebase.database().ref("users/"+username).set({
       stones: 0,
       bosses: 0,
       level: 0
@@ -36,7 +36,7 @@ function login()
 function getData()
 {
   console.log(username);
-  firebase.database().ref(username).once('value').then(function(snapshot) {
+  firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
     var stones = snapshot.val().stones;
     var bosses = snapshot.val().bosses;
     var level = snapshot.val().level;
@@ -85,7 +85,7 @@ function freeStone()
   }
   else
   {
-    firebase.database().ref(username).set({
+    firebase.database().ref("users/"+username).set({
       stones: getData()[0]+1
     });
     if(data[0]%4==0 || Math.random()<1) //0.2
@@ -108,7 +108,7 @@ function defeatBoss()
   alert("Boss defeated!");
   document.getElementById("boss").style="display:none;";
   var data = getData();
-  firebase.database().ref(username).set({
+  firebase.database().ref("users/"+username).set({
     bosses: getData()[1]+1
   });
   var elem = document.getElementById("boss");
@@ -160,16 +160,19 @@ function stoneComplain()
 }
 function loadLeaderboard()
 {
-  var database = firebase.database();
-  database.ref(username).once('value').then(function(snapshot) {
-    var stones = snapshot.val().stones;
-    var bosses = snapshot.val().bosses;
-    var level = snapshot.val().level;
-  });
-  var userId = firebase.auth().currentUser.uid;
-  return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-    var username = snapshot.val().username;
-    document.getElementById("leaderboard").innerHTML = stones+" "+bosses+" "+username+"<br>";
+  var users = firebase.database().ref("users");
+  users.orderByKey().limitToFirst(100);
+  users.once('value').then(function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var lastKey = childSnapshot.key();
+      var data = []
+      var stones = childSnapshot.val().stones;
+      var bosses = childSnapshot.val().bosses;
+      var level = childSnapshot.val().level;
+      data.append([lastKey,stones,bosses]);
+      document.getElementById("leaderboard").innerHTML += lastKey+" "+stones+" "+bosses+" "++"<br>";      
+      }
+    });
   });
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
