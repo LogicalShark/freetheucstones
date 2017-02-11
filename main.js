@@ -37,15 +37,15 @@ function login()
 }
 function bossEncounter()
 {
-  var d;
-  var user = firebase.database().ref("users").child(username);
-  user.on("value", function(snapshot)
-             {
-    d = snapshot.val();
-    var x = d["stones"];
-    var b = d["bosses"];
-      if(b>0)
-    {
+//   var d;
+//   var user = firebase.database().ref("users").child(username);
+//   user.on("value", function(snapshot)
+//              {
+//     d = snapshot.val();
+//     var x = d["stones"];
+//     var b = d["bosses"];
+//       if(b>0)
+//     {
       switch(Math.floor(Math.random()*5))//b
       {
         case 0: window.location.assign("battle.html");
@@ -60,9 +60,9 @@ function bossEncounter()
           break;
         default: window.location.assign("battle.html");
       }
-    }
-    });
-  });
+//     }
+//     });
+//   });
 }
 function freeStone()
 {
