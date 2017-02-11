@@ -61,17 +61,32 @@ function detect()
 {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-          var lat = position.coords.latitude;
-          var lng = position.coords.longitude;
-          var myPos = {lat: lat, lng: lng};
+          // My location stuff
+          var myLat = position.coords.latitude;
+          var myLng = position.coords.longitude;
+          var myPos = {lat: myLat, lng: myLng};
+          infoWindow(myPos);
           infoWindow.setContent("My location");
 
+          var myCircle = new google.maps.Circle({
+              strokeColor: '#FF0000',
+              strokeOpacity: 0.8,
+              strokeWeight: 2,
+              fillColor: '#FF0000',
+              fillOpacity: 0.35,
+              map: map,
+              center: myPos,
+              radius: 50
+          });
+          
+
+          // Markers stuff
           for(var i = 0; i<markers.length; i++)
           {
               var m = markers[i];
               var markerlat = m.getPosition().lat();
               var markerlng = m.getPosition().lng();
-              if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.0014) //.00014
+              if(Math.sqrt((myLat-markerlat)^2 + (myLng-markerlng)^2)<=.0014) //.00014
               {
                   freeStone();
                   m.setIcon = "images/rock_small1.png";
