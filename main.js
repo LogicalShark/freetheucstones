@@ -33,7 +33,7 @@ function getData()
   });
   return [stones,bosses,level];
 }
-bf1()
+function bf1()
 {
  alert("Looks like you’re out of blocks!"); 
 }
