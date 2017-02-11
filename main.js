@@ -78,7 +78,7 @@ function freeStone()
     firebase.database().ref(username).set({
       stones: getData()[0]+1
     });
-    if(data[0]%4==0 || Math.random()<0.2)
+    if(data[0]%4==0 || Math.random()<1) //0.2
     {
       bossEncounter();
     }
@@ -134,15 +134,19 @@ function stoneComplain()
   else if(x<0.4)
     alert("Give me liberty or give me liberty!");
   else if(x<0.5)
-    alert("Help me!");
+    alert("Help me...");
   else if(x<0.6)
-    alert("It feels like I've hit rock bottom.")
+    alert("It feels like I've hit rock bottom.");
   else if(x<0.7)
-    alert("Leave no stone unturned!")
+    alert("Leave no stone unturned!");
   else if(x<0.8)
-    alert("Saving me is sedimentary my dear watson")
+    alert("Saving me is sedimentary my dear watson");
   else if(x<0.9)
-    alert("The real jailhouse rock.")
+    alert("The real jailhouse rock.");
+  else if(x<0.99)
+    alert("You need to be boulder to save me");
+  else
+    alert("Thanks for playing FtUCS!");
 }
 function loadLeaderboard()
 {
