@@ -68,7 +68,7 @@ function bossEncounter()
 function freeStone()
 {
   alert("Stone freed!");
-  document.getElementById("cage").style="display:none;";
+  initMap();
   var data = getData();
   firebase.database().ref(username).set({
     stones: getData()[0]+1
