@@ -139,7 +139,7 @@ function bossFightClick()
      defeatBoss();
      clicks = 0;
     }
-  });
+//   });
 }
 
 function loadLeaderboard()
