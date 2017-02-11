@@ -125,23 +125,24 @@ function defeatBoss()
 {
   alert("Boss defeated!");
   document.getElementById("boss").style="display:none;";
-  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-  firebase.database().ref("users/"+username).set({
-    bosses: data[1]+1
-  });
-  var elem = document.getElementById("boss");
-  elem.parentNode.removeChild(elem);
 }
 function bossFightClick()
 {
-  var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-  var bossClicks = (data[1]*2)+3;
-  if(clicks>bossClicks)
-  {
-   defeatBoss();
-   clicks = 0;
-  }
-  clicks+=1;
+  var d;
+  var user = firebase.database().ref("users").child(username);
+  user.on("value", function(snapshot)
+             {
+    d = snapshot.val();
+    var x = d["stones"];
+    var b = d["bosses"];
+    clicks+=1;
+    var bossClicks = (b*2)+3;
+    if(clicks>bossClicks)
+    {
+     defeatBoss();
+     clicks = 0;
+    }
+  });
 }
 
 function loadLeaderboard()
