@@ -15,7 +15,6 @@ function register()
     firebase.database().ref("users/"+username).set({
       stones: 0,
       bosses: 0,
-      level: 0
     });
   }
   else
@@ -57,28 +56,41 @@ function bf5()
 function bossEncounter()
 { 
   alert("A boss is approaching!");
-  switch(1)
-  {
-    case 1: window.location.assign("battle.html");
-      break;
-    case 2: window.location.assign("battle2.html");
-      break;
-    case 3: window.location.assign("battle3.html");
-      break;
-    case 4: window.location.assign("battle4.html");
-      break;
-    case 5:   window.location.assign("battle5.html");
-      break;
-    default: window.location.assign("battle5.html");
-  }
-
+    var d;
+    var user = firebase.database().ref("users").child(username);
+    user.on("value", function(snapshot)
+               {
+      d = snapshot.val();
+      var x = d["stones"];
+      var b = d["bosses"];
+      switch(b)
+      {
+        case 0: window.location.assign("battle.html");
+          break;
+        case 1: window.location.assign("battle1.html");
+          break;
+        case 2: window.location.assign("battle2.html");
+          break;
+        case 3: window.location.assign("battle3.html");
+          break;
+        case 4: window.location.assign("battle4.html");
+          break;
+        case 5: window.location.assign("battle5.html");
+          break;
+        default: window.location.assign("battle.html");
+      }
+      user.update({
+        "stones": x,
+        "bosses": b+1
+      });
+    });
 }
 function freeStone()
 {
   alert("Stone freed!");
   if(username=="")
   {
-    alert("Please log in!");
+    alert("Please log in to save your data!");
   }
   else
   {
@@ -94,7 +106,6 @@ function freeStone()
         "bosses": b
       });
     });
-    console.log("boss");
     if(Math.random()<1) //0.2
     {
       bossEncounter();
