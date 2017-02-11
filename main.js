@@ -60,7 +60,7 @@ function defeatBoss()
 }
 function bossFightClick()
 {
-  if(clicks>(bossClicks)
+  if(clicks>bossClicks)
   {
    defeatBoss();
    clicks = 0;
