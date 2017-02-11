@@ -35,8 +35,8 @@ function detect()
 {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-          var lat: position.coords.latitude;
-          var lng: position.coords.longitude;
+          var lat = position.coords.latitude;
+          var lng = position.coords.longitude;
           for(var i = 0; i<markers.length; i++)
           {
               var m = markers[i];
