@@ -39,14 +39,14 @@ function register()
 {
   username = document.getElementById("username").value;
   console.log(username);
-  if(!firebase.database().ref(username).exists())
-  {
+//   if(!firebase.database().ref(username).exists())
+//   {
     firebase.database().ref(username).set({
       stones: 0,
       bosses: 0,
       level: 0
     });
-  }
+//   }
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
