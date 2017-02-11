@@ -29,6 +29,32 @@ function initMap() {
         "images/rock_small5.png",
         "images/rock_small6.png"];
 
+    var x = Math.random();
+    var rockText;
+    if(x<0.1)
+        rockText = "Call the campus police!";
+    else if(x<0.2)
+        alert("This doesn’t rock at all");
+    else if(x<0.3)
+        alert("Don't take me for granite");
+    else if(x<0.4)
+        alert("Give me liberty or give me liberty!");
+    else if(x<0.5)
+        alert("Help me...");
+    else if(x<0.6)
+        alert("It feels like I've hit rock bottom.");
+    else if(x<0.7)
+        alert("Leave no stone unturned!");
+    else if(x<0.8)
+        alert("Saving me is sedimentary my dear watson");
+    else if(x<0.9)
+        alert("The real jailhouse rock.");
+    else if(x<0.99)
+        alert("You need to be boulder to save me");
+    else
+        alert("Thanks for playing FtUCS!");
+
+
 
     for (var i = 0; i < stones; i++)
     {
