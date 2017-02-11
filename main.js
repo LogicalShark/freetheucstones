@@ -30,3 +30,35 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: The Geolocation service failed.' :
                         'Error: Your browser doesn\'t support geolocation.');
 }
+
+
+clicks = 0;
+bossClicks = 10;
+function freeStone()
+{
+  alert("Stone freed!");
+}
+function freeStoneClick()
+{
+  if(clicks>(Math.random()*10))
+  {
+   freeStone()
+   clicks = 0;
+  }
+  clicks+=1;
+}
+
+function defeatBoss()
+{
+  alert("Boss defeated!");
+  document.getElementById("boss").style="display:none;"
+}
+function bossFightClick()
+{
+  if(clicks>(bossClicks)
+  {
+   defeatBoss()
+   clicks = 0;
+  }
+  clicks+=1;
+}
