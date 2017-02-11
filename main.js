@@ -101,7 +101,7 @@ function freeStone()
   }
   else
   {
-    var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML
+    var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
     console.log(data[0]);
     firebase.database().ref("users/"+username).set({
       stones:(data[0]+1)
