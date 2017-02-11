@@ -2,7 +2,6 @@
 function randRange(min, max) {
     return Math.random() * (max - min) + min;
 }
-pos = {lat:40.4435,lng:79.9435}
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
