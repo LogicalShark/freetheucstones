@@ -177,7 +177,6 @@ function loadLeaderboard()
       cols[2].innerHTML = bosses;
       })
     });
-  });
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
