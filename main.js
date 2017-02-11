@@ -40,7 +40,7 @@ function getData()
   console.log(username);
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
     var s = snapshot.val();
-    var data = []
+    var data = [];
     for(var key in s) {
       var stones = s[key].stones;
       var bosses = s[key].bosses;
@@ -56,6 +56,7 @@ function getData()
     bo.style="display:none;";
     document.body.appendChild(st);
     document.body.appendChild(bo);
+    console.log(data[1]);
   });
 }
 function bf1()
@@ -101,12 +102,22 @@ function freeStone()
   }
   else
   {
-    var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-    console.log(data[0]);
-    firebase.database().ref("users/"+username).set({
-      stones:(data[0]+1)
+    var d;
+    var user = firebase.database().ref("users").child(username);
+    player1.on("value", function(snapshot)
+               {
+      d = snapshot.val();
+      d["stones"] += 1;
+      user.update({
+        "stones": d["stones"]
+      });
     });
-    if(data[0]%4==0 || Math.random()<1) //0.2
+//     var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
+//     console.log(data[0]);
+//     firebase.database().ref("users/"+username).set({
+//       stones:(data[0]+1)
+//     });
+    if(Math.random()<1) //0.2
     {
       bossEncounter();
     }
@@ -149,8 +160,8 @@ function bossEncounter()
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
-  b.style.zIndex = "-100";
-  document.getElementById("map").appendChild(b); 
+  b.style = "z-index:-100;position:fixed";
+  document.body.appendChild(b); 
 }
 function stoneComplain()
 {

@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>High Scores!</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
 table {
     font-family: arial, sans-serif;
@@ -18,8 +19,12 @@ tr:nth-child(even) {
 </style>
 </head>
 <body>
-    
-<a href="/freetheucstones">Return to game</a>
+<ul class="topnav" id="myTopnav" style="position:fixed; z-index:2">
+  <li><a href="/freetheucstones">Return to game</a></li>
+    <li class="icon">
+    <a href="javascript:void(0);" onclick="addResponse()">&#9776;</a>
+  </li>
+</ul>
 
 <table>
   <tr>
