@@ -100,6 +100,31 @@ function initMap() {
 
 
 }
+
+function showMyPosition(position)
+{
+
+    // My location stuff
+    var myLat = position.coords.latitude;
+    var myLng = position.coords.longitude;
+    var myPos = {lat: myLat, lng: myLng};
+    infoWindow.setPosition(myPos);
+    infoWindow.setContent("My location");
+
+    var myCircle = new google.maps.Circle({
+      strokeColor: '#FF0000',
+      strokeOpacity: 0.8,
+      strokeWeight: 2,
+      fillColor: '#FF0000',
+      fillOpacity: 0.35,
+      setMap: map,
+      center: myPos,
+      radius: 50
+    });
+
+    return myPos;
+};
+
 function detect()
 {
      var freeRockPaths = [
@@ -112,30 +137,15 @@ function detect()
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
-          // My location stuff
-          var myLat = position.coords.latitude;
-          var myLng = position.coords.longitude;
-          var myPos = {lat: myLat, lng: myLng};
-          infoWindow.setPosition(myPos);
-          infoWindow.setContent("My location");
+          var myPos = showMyPosition(position);
+          myLat = myPos.lat;
+          myLng = myPos.lng;
 
-          var myCircle = new google.maps.Circle({
-              strokeColor: '#FF0000',
-              strokeOpacity: 0.8,
-              strokeWeight: 2,
-              fillColor: '#FF0000',
-              fillOpacity: 0.35,
-              setMap: map,
-              center: myPos,
-              radius: 50
-          });
+            // Markers stuff
 
-
-          // Markers stuff
-
-          var alerted = false;
-          for(var i = 0; i<markers.length; i++)
-          {
+            var alerted = false;
+            for(var i = 0; i<markers.length; i++)
+            {
               var m = markers[i];
               var markerlat = m.getPosition().lat();
               var markerlng = m.getPosition().lng();
@@ -152,7 +162,7 @@ function detect()
                   markers[i].setIcon(freeRockPaths[iconIndex]);
                   console.log(markers[i].getIcon())
               }
-          }
+            }
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
