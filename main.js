@@ -46,11 +46,11 @@ function getData()
       var bosses = s[key].bosses;
       data.push([stones,bosses]);
     }
-    var st = document.createElement(p);
+    var st = document.createElement("p");
     st.id="stones";
     st.innerHTML = data[0];
     st.style="display:none;";
-    var bo = document.createElement(p);    
+    var bo = document.createElement("p");    
     bo.id="bosses";
     bo.innerHTML = data[1];
     bo.style="display:none;";
