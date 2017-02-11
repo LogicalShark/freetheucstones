@@ -62,7 +62,7 @@ function getData()
 function bf1()
 { 
   alert("Looks like you’re out of blocks!"); 
-  var b = document.createElement("img");
+  var b = document.createElement("IMG");
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
