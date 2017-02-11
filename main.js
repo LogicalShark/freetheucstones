@@ -107,16 +107,13 @@ function freeStone()
     user.on("value", function(snapshot)
                {
       d = snapshot.val();
-      d["stones"] += 1;
+      var x = d["stones"] + 1;
+      var b = d["bosses"];
       user.update({
-        "stones": d["stones"]
+        "stones": x,
+        "bosses": b
       });
     });
-//     var data = [document.getElementById("stones").innerHTML, document.getElementById("bosses").innerHTML];
-//     console.log(data[0]);
-//     firebase.database().ref("users/"+username).set({
-//       stones:(data[0]+1)
-//     });
     if(Math.random()<1) //0.2
     {
       bossEncounter();
