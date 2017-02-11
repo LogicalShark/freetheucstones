@@ -2,6 +2,11 @@
 function randRange(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+function randChoice(myArray) {
+    return myArray[Math.floor(Math.random() * myArray.length)];
+}
+
 markers = [];
 function initMap() {
     var stones = 10;
@@ -15,15 +20,35 @@ function initMap() {
     var lat1 = 40.441393;
     var lon1 = -79.940703;
 
+    var normalRocks = ["images/rock_small2_1.png", "images/rock_small2.png"];
+
+    var colorRocks = [
+        "images/rock_small3.png",
+        "images/rock_small4.png",
+        "images/rock_small5.png",
+        "images/rock_small6.png"];
+
     var rock_small2 = "images/rock_small2.png";
 
     for (var i = 0; i < stones; i++)
     {
+        randPos = new google.maps.LatLng(randRange(lat1, lat0),
+                                         randRange(lon0, lon1));
+
+        var rockChance = Math.random();
+        var rockIcon;
+        if (rockChance < 0.5) {
+            rockIcon = randChoice(normalRocks);
+        } else {
+            rockIcon = randChoice(colorRocks);
+        }
+
+        //console.log(rockIcon);
+
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(randRange(lat1, lat0),
-                                             randRange(lon0, lon1)),
+            position: randPos,
             map: map,
-            icon: rock_small2,
+            icon: rockIcon,
             title:"UC Stone"
         });
         marker.addListener('click', function(){stoneComplain()});
