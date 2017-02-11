@@ -67,6 +67,10 @@ function getData()
   });
   return [stones,bosses,level];
 }
+function bossEncounter()
+{
+ alert("A boss is approaching!"); 
+}
 function freeStone()
 {
   alert("Stone freed!");
@@ -75,6 +79,10 @@ function freeStone()
   firebase.database().ref(username).set({
     stones: getData()[0]+1
   });
+  if(data[0]%3==0 && Math.random()>0.75)
+  {
+    bossEncounter();
+  }
 }
 function freeStoneClick()
 {
