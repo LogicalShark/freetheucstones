@@ -51,6 +51,7 @@ function initMap() {
     var lon1 = -79.940703;
 
     infoWindow = new google.maps.InfoWindow({map: map});
+    infoWindowRock = new google.maps.InfoWindow({map: map});
 
 
     rockPaths = [
@@ -93,7 +94,7 @@ function initMap() {
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);
             };
-        })(marker, randRockText(),infoWindow));
+        })(marker, randRockText(),infoWindowRock));
         markers.push(marker);
     }
 
