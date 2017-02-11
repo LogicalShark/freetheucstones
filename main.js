@@ -59,9 +59,6 @@ function getData()
     console.log(data[1]);
   });
 }
-function bf1()
-{
-}
 function bf2()
 {
   alert("This’ll only take a single 112 minute!"); 
@@ -84,7 +81,7 @@ function bf5()
 function bossEncounter()
 { 
   alert("A boss is approaching!");
-  bf1();
+  window.location.assign("battle.html");
   switch(1)
   {
     case 1: window.location("battle.html");
