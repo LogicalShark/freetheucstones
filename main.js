@@ -36,14 +36,14 @@ function login()
 function getData()
 {
   console.log(username);
-  data = []
   firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
     var s = snapshot.val();
+    data = []
     for(var key in s) {
-        s[key].stones = stones;
-        s[key].bosses = bosses;
+      var stones = s[key].stones;
+      var bosses = s[key].bosses;
+      data.push([stones,bosses]);
     }
-    data = s;
   });
   return data;
 }
