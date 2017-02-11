@@ -1,11 +1,16 @@
 clicks = 0;
 bossClicks = 10;
 username = "";
+exists = false;
 function register()
 {
   username = document.getElementById("username").value;
-  console.log(username);
-  if(!firebase.database().ref(username).exists())
+  usersRef.once('value', function(snapshot) {
+    if (snapshot.hasChild(username)) {
+      exists = true;
+    }
+  });
+  if(!exists)
   {
     firebase.database().ref(username).set({
       stones: 0,
