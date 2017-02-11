@@ -2,7 +2,7 @@
 function randRange(min, max) {
     return Math.random() * (max - min) + min;
 }
-
+pos = {lat:40.4435,lng:79.9435}
 function initMap() {
     var stones = 10;
     var centerLocation = {lat: 40.442706, lng: -79.943677};
@@ -29,6 +29,28 @@ function initMap() {
         });
         markers.push(marker);
     }
-}
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
 
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+}
 
