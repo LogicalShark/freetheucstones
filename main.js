@@ -47,10 +47,16 @@ function register()
       level: 0
     });
   }
+  document.getElementById("username").style="display:none;";
+  document.getElementById("login").style="display:none;";
+  document.getElementById("register").style="display:none;";
 }
 function login()
 {
   username = document.getElementById("username");
+  document.getElementById("username").style="display:none;";
+  document.getElementById("login").style="display:none;";
+  document.getElementById("register").style="display:none;";
 }
 function getData()
 {
