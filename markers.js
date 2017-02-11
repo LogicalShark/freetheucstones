@@ -27,6 +27,7 @@ function initMap() {
             map: map,
             icon: rock_small2
         });
+        marker.addListener('click', stoneComplain());
         markers.push(marker);
     }
     if (navigator.geolocation) {
