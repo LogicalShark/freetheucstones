@@ -10,18 +10,18 @@
   <script src="main.js"></script>
 </head>
 <body>
- <ul class="topnav" id="myTopnav" style="position:fixed">
+ <ul class="topnav" id="myTopnav" style="position:fixed; z-index:-1;">
   <li><a href="#map">Map</a></li>
   <li><a href="#stats">Stats</a></li>
   <li><a href="#battle">Battle</a></li>
-  <li class="icon">
+  <li><input type="text" id="username" placeholder="Username"></li>
+  <li><button onClick="login()">Login</button></li>
+  <li><button onClick="register()">Register</button></li>
+   <li class="icon">
     <a href="javascript:void(0);" onclick="addResponse()">&#9776;</a>
   </li>
 </ul>
   <h1>Free the UC Stones</h1>
-  <input type="text" id="username" placeholder="Username">
-  <button onClick="login()">Login</button>
-  <button onClick="register()">Register</button>
   <div id="map"></div>
   <script src="markers.js"></script>
 </body>
