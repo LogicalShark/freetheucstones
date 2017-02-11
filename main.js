@@ -78,7 +78,7 @@ function freeStone()
     firebase.database().ref(username).set({
       stones: getData()[0]+1
     });
-    if(data[0]%3==0) // && Math.random()>0.75
+    if(data[0]%4==0 || Math.random()<0.2)
     {
       bossEncounter();
     }
@@ -133,6 +133,19 @@ function stoneComplain()
     alert("Saving me is sedimentary my dear watson")
   else if(x<0.9)
     alert("The real jailhouse rock.")
+}
+function loadLeaderboard()
+{
+  var database = firebase.database();
+  database.ref(username).once('value').then(function(snapshot) {
+    var stones = snapshot.val().stones;
+    var bosses = snapshot.val().bosses;
+    var level = snapshot.val().level;
+  });
+  var userId = firebase.auth().currentUser.uid;
+  return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+  var username = snapshot.val().username;
+  document.getElementById("leaderboard").innerHTML = stones+" "+bosses+" "+username+"<br>";
 }
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function addResponse() {
