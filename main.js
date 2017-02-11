@@ -87,8 +87,9 @@ function freeStone()
   else
   {
     var data = getData();
+    console.log(data[0]);
     firebase.database().ref("users/"+username).set({
-      stones: data[0]+1
+      stones:(data[0]+1)
     });
     if(data[0]%4==0 || Math.random()<1) //0.2
     {
