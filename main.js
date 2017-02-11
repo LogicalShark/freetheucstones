@@ -33,7 +33,6 @@ function getData()
   console.log(username);
   firebase.database().ref(username).once('value').then(function(snapshot) {
     var stones = snapshot.val().stones;
-    console.log(stones);
     var bosses = snapshot.val().bosses;
     var level = snapshot.val().level;
   });
