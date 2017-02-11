@@ -39,7 +39,7 @@ function register()
 {
   username = document.getElementById("username").value;
   console.log(username);
-  if(!firebase.database().hasChild(username))
+  if(!firebase.database().ref(username).exists())
   {
     firebase.database().ref(username).set({
       stones: 0,
