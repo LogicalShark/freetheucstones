@@ -66,7 +66,7 @@ function bf1()
   b.src="images/culinart.png";
   b.id="boss";
   b.onClick = "bossFightClick()";
-  b.style = "position:fixed,width:100%,height:100%";
+  b.style = "position:fixed,width:100%,height:100%,z-index:-100";
   document.body.appendChild(b);
 }
 function bf2()
