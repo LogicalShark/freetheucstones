@@ -54,7 +54,8 @@ function initMap() {
         marker.addListener('click', function(){stoneComplain()});
         markers.push(marker);
     }
-        infoWindow = new google.maps.InfoWindow({map: map});
+
+    infoWindow = new google.maps.InfoWindow({map: map});
 }
 function detect()
 {
@@ -62,6 +63,9 @@ function detect()
       navigator.geolocation.getCurrentPosition(function(position) {
           var lat = position.coords.latitude;
           var lng = position.coords.longitude;
+          var myPos = {lat: lat, lng: lng};
+          infoWindow.setContent("My location");
+
           for(var i = 0; i<markers.length; i++)
           {
               var m = markers[i];
