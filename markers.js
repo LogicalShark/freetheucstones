@@ -45,7 +45,7 @@ function detect()
               if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.0014) //.00014
               {
                   freeStone();
-                  markers.splice(i);
+                  m.setIcon = "images/rock_small1.png";
               }
           }
       }, function() {
