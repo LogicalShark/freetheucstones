@@ -98,6 +98,18 @@ function initMap() {
         markers.push(marker);
     }
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+          showMyPosition(position);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+
 
 }
 
