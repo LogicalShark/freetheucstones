@@ -13,6 +13,10 @@ function register()
       level: 0
     });
   }
+  else
+  {
+    alert("Username taken!");
+  }
   document.getElementById("username").style="display:none;";
   document.getElementById("login").style="display:none;";
   document.getElementById("register").style="display:none;";
