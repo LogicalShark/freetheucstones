@@ -35,30 +35,6 @@ function login()
   document.getElementById("register").style="display:none;";
 //   getData();
 }
-function getData()
-{
-  console.log(username);
-  firebase.database().ref("users/"+username).once('value').then(function(snapshot) {
-    var s = snapshot.val();
-    var data = [];
-    for(var key in s) {
-      var stones = s[key].stones;
-      var bosses = s[key].bosses;
-      data.push([stones,bosses]);
-    }
-    var st = document.createElement("p");
-    st.id="stones";
-    st.innerHTML = data[0];
-    st.style="display:none;";
-    var bo = document.createElement("p");    
-    bo.id="bosses";
-    bo.innerHTML = data[1];
-    bo.style="display:none;";
-    document.body.appendChild(st);
-    document.body.appendChild(bo);
-    console.log(data[1]);
-  });
-}
 function bf2()
 {
   alert("This’ll only take a single 112 minute!"); 
@@ -81,20 +57,19 @@ function bf5()
 function bossEncounter()
 { 
   alert("A boss is approaching!");
-  window.location.assign("battle.html");
   switch(1)
   {
-    case 1: window.location("battle.html");
+    case 1: window.location.assign("battle.html");
       break;
-    case 2: window.location("battle2.html");
+    case 2: window.location.assign("battle2.html");
       break;
-    case 3: window.location("battle3.html");
+    case 3: window.location.assign("battle3.html");
       break;
-    case 4: window.location("battle4.html");
+    case 4: window.location.assign("battle4.html");
       break;
-    case 5:   window.location("battle5.html");
+    case 5:   window.location.assign("battle5.html");
       break;
-    default: window.location("battle5.html");
+    default: window.location.assign("battle5.html");
   }
 
 }
