@@ -35,8 +35,8 @@ function getData()
     var stones = snapshot.val().stones;
     var bosses = snapshot.val().bosses;
     var level = snapshot.val().level;
+    return [stones,bosses,level];
   });
-  return [stones,bosses,level];
 }
 function bf1()
 {
