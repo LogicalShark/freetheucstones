@@ -34,6 +34,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 clicks = 0;
 bossClicks = 10;
+function login()
+{ 
+  var storage = firebase.storage();
+  var storageRef = storage.ref();
+}
 function freeStone()
 {
   alert("Stone freed!");
@@ -51,7 +56,7 @@ function freeStoneClick()
 function defeatBoss()
 {
   alert("Boss defeated!");
-  document.getElementById("boss").style="display:none;"
+  document.getElementById("boss").style="display:none;";
 }
 function bossFightClick()
 {
@@ -62,6 +67,3 @@ function bossFightClick()
   }
   clicks+=1;
 }
-
-var storage = firebase.storage();
-var storageRef = storage.ref();
