@@ -42,7 +42,7 @@ function detect()
               var m = markers[i];
               var markerlat = m.getPosition().lat();
               var markerlng = m.getPosition().lng();
-              if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.00014)
+              if(Math.sqrt((lat-markerlat)^2 + (lng-markerlng)^2)<=.0014) //.00014
               {
                   freeStone();
               }
