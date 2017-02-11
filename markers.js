@@ -26,7 +26,7 @@ function initMap() {
             icon: rock_small2,
             title:"UC Stone"
         });
-        marker.addListener('click', stoneComplain());
+        marker.addListener('click', function(){stoneComplain()});
         markers.push(marker);
     }
         infoWindow = new google.maps.InfoWindow({map: map});
