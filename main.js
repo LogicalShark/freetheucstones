@@ -74,14 +74,16 @@ function freeStone()
   else
   {
     var d;
+    var notified = false;
     var user = firebase.database().ref("users").child(username);
     user.on("value", function(snapshot)
                {
       d = snapshot.val();
       var x = d["stones"] + 1;
       var b = d["bosses"] + 1;
-      if(Math.random()<.5) //0.2
+      if(Math.random()<.5 && !notified) //0.2
       {
+        notified = true;
         alert("A boss is has challenged you! Use the Battle tab to fight!");
       }
       user.update({
