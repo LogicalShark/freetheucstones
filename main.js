@@ -85,11 +85,11 @@ function freeStone()
       {
         notified = true;
         alert("A boss is has challenged you! Use the Battle tab to fight!");
-      }
-      user.update({
-        "stones": x,
-        "bosses": b
+        user.update({
+          "stones": x,
+          "bosses": b
       });
+      }
     });
   }
 }
