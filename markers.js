@@ -159,7 +159,7 @@ function detect()
                     var markerlng = m.getPosition().lng();
                     var dist = Math.sqrt(Math.pow((myLat - markerlat), 2) +
                         Math.pow((myLng - markerlng), 2));
-                    if (dist <= .0014) //.00014
+                    if (dist <= .0003) //.00014 = 50ft
                     {
                         if (!alerted) {
                             freeStone();
